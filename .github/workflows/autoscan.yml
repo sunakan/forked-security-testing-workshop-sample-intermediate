@@ -5,6 +5,12 @@ name: Java CI with Gradle
 
 # GitHub Actions 発火タイミング
 on:
+  workflow_dispatch:
+    inputs:
+      dispatcher_name:
+        description: '手動実行者の名前を入力してください'
+        required: true
+        default: 'suna'
   push:
     branches:
       - main
