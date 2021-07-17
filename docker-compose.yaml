@@ -1,0 +1,20 @@
+---
+
+version: '3.8'
+
+services:
+  app:
+    working_dir: /var/local/app/
+    image: adoptopenjdk/openjdk11:x86_64-debianslim-jdk-11.0.11_9-slim
+    volumes:
+      - type: bind
+        source: ${PWD}/
+        target: /var/local/app/
+      - type: volume
+        source: gradle-vol
+        target: /root/.gradle
+    ports:
+      - 50080:50080
+
+volumes:
+  gradle-vol:
